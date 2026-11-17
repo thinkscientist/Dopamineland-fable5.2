@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dopamine Land</title>
+  <meta name="description" content="Dopamine Land — an interactive feast for the senses. Four glowing worlds, generative music, and a reward for every click.">
+  <meta name="theme-color" content="#12002b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='.35' cy='.3'%3E%3Cstop offset='0' stop-color='%23fff3a8'/%3E%3Cstop offset='.45' stop-color='%23ff4fa3'/%3E%3Cstop offset='1' stop-color='%237a2cff'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.min.js",
+      "three/addons/": "./vendor/three/addons/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="stage" aria-label="Dopamine Land interactive 3D scene"></canvas>
+
+  <!-- Landing -->
+  <section id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">welcome to</p>
+      <h1 class="title" aria-label="Dopamine Land">
+        <span class="word" data-word="DOPAMINE"></span>
+        <span class="word" data-word="LAND"></span>
+      </h1>
+      <p class="tagline">A feast for the senses. Four glowing worlds, one endless groove.</p>
+      <button id="enter" type="button"><span>Enter</span></button>
+      <p class="fineprint">Sound on · headphones recommended · contains bright colour &amp; motion</p>
+    </div>
+  </section>
+
+  <!-- HUD -->
+  <div id="hud" aria-hidden="true">
+    <header class="hud-top">
+      <div class="brand">DOPAMINE<b>LAND</b></div>
+      <div class="meter-wrap">
+        <div class="meter-label"><span>dopamine</span><span id="score">0</span></div>
+        <div class="meter"><div id="meter-fill"></div></div>
+        <div id="combo"></div>
+      </div>
+      <div class="controls">
+        <button id="btn-sound" type="button" title="Sound (M)" aria-label="Toggle sound">
+          <svg viewBox="0 0 24 24"><path class="spk" d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="mute" d="M16 9l5 6M21 9l-5 6"/></svg>
+        </button>
+        <button id="btn-full" type="button" title="Fullscreen (F)" aria-label="Toggle fullscreen">
+          <svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <footer class="hud-bottom">
+      <div class="world">
+        <div class="world-index" id="world-index">01 / 04</div>
+        <div class="world-name" id="world-name">Candy Cosmos</div>
+        <div class="world-sub" id="world-sub"></div>
+      </div>
+      <nav class="dots" id="dots" aria-label="Worlds"></nav>
+      <div class="hint">
+        <span><kbd>click</kbd> burst</span>
+        <span><kbd>hold</kbd> hyperdrive</span>
+        <span><kbd>space</kbd> next world</span>
+      </div>
+    </footer>
+  </div>
+
+  <div id="pops" aria-hidden="true"></div>
+  <div id="banner" aria-hidden="true"><span>EUPHORIA</span></div>
+  <div id="cursor" aria-hidden="true"><i></i><b></b></div>
+
+  <noscript><p class="noscript">Dopamine Land needs JavaScript and WebGL.</p></noscript>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
